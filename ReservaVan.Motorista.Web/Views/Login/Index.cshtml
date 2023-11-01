@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+
+@model LoginViewModel
+
+<div class="row">
+    <div class="col-md-4">
+        <form id="loginForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <h2>Login</h2>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="form-floating mb-3">
+                <input asp-for="Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="Email">E-mail</label>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                <label asp-for="Password">Senha</label>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            @if (Model.ModelStateErrors.Any())
+            {
+                <div class="row">
+                    <div class="col col-12">
+                        <div class="alert alert-danger">@Model.ModelStateErrors.Aggregate((c, n) => c + Environment.NewLine + n)</div>
+                    </div>
+                </div>
+            }
+
+            <button id="loginSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Login</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

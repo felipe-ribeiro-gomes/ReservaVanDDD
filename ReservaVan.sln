@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReservaVan.Motorista.Web", "ReservaVan.Motorista.Web\ReservaVan.Motorista.Web.csproj", "{A2520F23-01AA-4D69-BBA4-EA37AA9318C5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Domain", "1. Domain", "{B9A95462-8D78-4C48-9451-E766DD1EC947}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Infrastructure", "2. Infrastructure", "{8CA7730D-8D4A-4810-A7E7-66970A6DA43A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.1. Data", "2.1. Data", "{93AA530E-AE7F-4A19-A23C-7AE4DE42AACE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Presentation", "3. Presentation", "{C3264B59-C170-49B7-8EEB-E4F9E7E3495C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservaVan.Motorista.Domain", "ReservaVan.Motorista.Domain\ReservaVan.Motorista.Domain.csproj", "{6485EA8E-34EB-40C0-A84E-47FFDAE08528}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservaVan.Motorista.Data", "ReservaVan.Motorista.Data\ReservaVan.Motorista.Data.csproj", "{10BB5BCA-CFE3-4D9C-BC3A-BA02645F6B8C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2520F23-01AA-4D69-BBA4-EA37AA9318C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2520F23-01AA-4D69-BBA4-EA37AA9318C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2520F23-01AA-4D69-BBA4-EA37AA9318C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2520F23-01AA-4D69-BBA4-EA37AA9318C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6485EA8E-34EB-40C0-A84E-47FFDAE08528}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6485EA8E-34EB-40C0-A84E-47FFDAE08528}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6485EA8E-34EB-40C0-A84E-47FFDAE08528}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6485EA8E-34EB-40C0-A84E-47FFDAE08528}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10BB5BCA-CFE3-4D9C-BC3A-BA02645F6B8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10BB5BCA-CFE3-4D9C-BC3A-BA02645F6B8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10BB5BCA-CFE3-4D9C-BC3A-BA02645F6B8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10BB5BCA-CFE3-4D9C-BC3A-BA02645F6B8C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A2520F23-01AA-4D69-BBA4-EA37AA9318C5} = {C3264B59-C170-49B7-8EEB-E4F9E7E3495C}
+		{93AA530E-AE7F-4A19-A23C-7AE4DE42AACE} = {8CA7730D-8D4A-4810-A7E7-66970A6DA43A}
+		{6485EA8E-34EB-40C0-A84E-47FFDAE08528} = {B9A95462-8D78-4C48-9451-E766DD1EC947}
+		{10BB5BCA-CFE3-4D9C-BC3A-BA02645F6B8C} = {93AA530E-AE7F-4A19-A23C-7AE4DE42AACE}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {31462B3F-6E69-40FE-82AA-606F8E41304E}
+	EndGlobalSection
+EndGlobal
