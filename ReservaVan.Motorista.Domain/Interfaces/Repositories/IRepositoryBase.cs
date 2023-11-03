@@ -9,7 +9,7 @@ namespace ReservaVan.Motorista.Domain.Interfaces.Repositories
         void Delete(TEntity entityToDelete);
         IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> filter = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, string includeProperties = "");
         TEntity GetById(T id);
-        void Insert(TEntity entity);
+        Task Insert(TEntity entity);
         void Update(TEntity entityToUpdate);
     }
 }

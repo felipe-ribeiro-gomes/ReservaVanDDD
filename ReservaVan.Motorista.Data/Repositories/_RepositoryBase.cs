@@ -7,8 +7,8 @@ namespace ReservaVan.Motorista.Data.Repositories;
 
 public class RepositoryBase<TEntity, T> : IRepositoryBase<TEntity, T> where TEntity : EntityBase<T>
 {
-    internal MotoristaDbContext _context;
-    internal DbSet<TEntity> _dbSet;
+    private readonly MotoristaDbContext _context;
+    private readonly DbSet<TEntity> _dbSet;
 
     public RepositoryBase(MotoristaDbContext context)
     {
@@ -41,17 +41,19 @@ public class RepositoryBase<TEntity, T> : IRepositoryBase<TEntity, T> where TEnt
         return _dbSet.Find(id);
     }
 
-    public virtual void Insert(TEntity entity)
+    public async virtual Task Insert(TEntity entity)
     {
         entity.CriadoPor = "";
         entity.CriadoEm = DateTime.UtcNow;
-        _dbSet.Add(entity);
+        await _dbSet.AddAsync(entity);
+        await _context.SaveChangesAsync();
     }
 
     public virtual void Delete(T id)
     {
         TEntity entityToDelete = _dbSet.Find(id);
         Delete(entityToDelete);
+        _context.SaveChanges();
     }
 
     public virtual void Delete(TEntity entityToDelete)
@@ -63,6 +65,7 @@ public class RepositoryBase<TEntity, T> : IRepositoryBase<TEntity, T> where TEnt
             _dbSet.Attach(entityToDelete);
         }
         _dbSet.Remove(entityToDelete);
+        _context.SaveChanges();
     }
 
     public virtual void Update(TEntity entityToUpdate)
@@ -71,5 +74,6 @@ public class RepositoryBase<TEntity, T> : IRepositoryBase<TEntity, T> where TEnt
         entityToUpdate.EditadoEm = DateTime.UtcNow;
         _dbSet.Attach(entityToUpdate);
         _context.Entry(entityToUpdate).State = EntityState.Modified;
+        _context.SaveChanges();
     }
 }

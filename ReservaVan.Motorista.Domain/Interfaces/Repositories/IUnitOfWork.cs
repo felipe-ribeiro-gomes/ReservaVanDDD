@@ -2,12 +2,15 @@
 
 namespace ReservaVan.Motorista.Domain.Interfaces.Repositories
 {
-    public interface IUnitOfWork : IDisposable
+    public interface IUnitOfWork
     {
+        IUsuarioRepository UsuarioRepository { get; }
         IRepositoryBase<Automovel, Guid> AutomovelRepository { get; }
         IRepositoryBase<Viagem, Guid> ViagemRepository { get;  }
         IRepositoryBase<Reserva, Guid> ReservaRepository { get; }
         IRepositoryBase<Passageiro, Guid> PassageiroRepository { get; }
-        void Save();
+        Task BeginTransaction();
+        Task CommitTransaction();
+        Task RollbackTransaction();
     }
 }
