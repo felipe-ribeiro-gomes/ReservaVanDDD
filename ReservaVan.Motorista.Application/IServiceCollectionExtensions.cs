@@ -15,5 +15,6 @@ public static class IServiceCollectionExtensions
         services.AddAutoMapper(loaded);
 
         services.AddScoped<IAutomovelAppSvc, AutomovelAppSvc>();
+        services.AddScoped<IUsuarioAppSvc, UsuarioAppSvc>();
     }
 }
