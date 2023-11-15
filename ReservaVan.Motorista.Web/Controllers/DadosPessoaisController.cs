@@ -4,21 +4,21 @@ using ReservaVan.Motorista.Application.Interfaces.ApplicationServices;
 
 namespace ReservaVan.Motorista.Web.Controllers;
 
-//[Authorize]
+[Authorize]
 public partial class DadosPessoaisController : ControllerBase
 {
     [HttpGet]
     public IActionResult Index()
     {
-        _automovelAppSvc.Create(new Application.DTOs.CreateAutomovelRequest
-        {
-            Marca = "marca appsvc",
-            Modelo = "modelo appsvc",
-            Cor = "cor appsvc",
-            Placa = "placa",
-            QtdVaga = 15,
-            UsuarioId = "90eba85e-7064-4ffe-a638-9e1c3d1713c7",
-        });
+        //_automovelAppSvc.Create(new Application.DTOs.CreateAutomovelRequest
+        //{
+        //    Marca = "marca appsvc",
+        //    Modelo = "modelo appsvc",
+        //    Cor = "cor appsvc",
+        //    Placa = "placa",
+        //    QtdVaga = 15,
+        //    UsuarioId = "90eba85e-7064-4ffe-a638-9e1c3d1713c7",
+        //});
 
         return View();
     }

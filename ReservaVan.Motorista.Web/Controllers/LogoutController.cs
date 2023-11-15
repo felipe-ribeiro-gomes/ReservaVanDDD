@@ -1,6 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using ReservaVan.Motorista.Domain.Entities;
+﻿using Microsoft.AspNetCore.Mvc;
+using ReservaVan.Motorista.Domain.Interfaces.Repositories;
 
 namespace ReservaVan.Motorista.Web.Controllers;
 
@@ -9,7 +8,7 @@ public partial class LogoutController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> Index()
     {
-        await _signInManager.SignOutAsync();
+        await _unitOfWork.SignInRepository.SignOutAsync();
         
         return RedirectToAction("Index", "Home");
     }
@@ -17,15 +16,15 @@ public partial class LogoutController : ControllerBase
 
 public partial class LogoutController
 {
-    private readonly SignInManager<Usuario> _signInManager;
+    private readonly IUnitOfWork _unitOfWork;
     private readonly ILogger<LogoutController> _logger;
 
     public LogoutController(
-        SignInManager<Usuario> signInManager,
+        IUnitOfWork unitOfWork,
         ILogger<LogoutController> logger
     )
     {
-        _signInManager = signInManager;
+        _unitOfWork = unitOfWork;
         _logger = logger;
     }
 }

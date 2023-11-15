@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Identity;
 using ReservaVan.Motorista.Application.DTOs;
 using ReservaVan.Motorista.Domain.Entities;
 using ReservaVan.Motorista.Domain.Interfaces.Repositories;

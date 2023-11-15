@@ -10,9 +10,13 @@ namespace ReservaVan.Motorista.Data;
 
 public static class IServiceCollectionExtensions
 {
+    public static IDbContextFactory<MotoristaDbContext> ContextFactory;
+    public static SignInManager<Usuario> SignInManager;
     public static UserManager<Usuario> UserManager;
+    public static RoleManager<Grupo> RoleManager;
+    public static IUserStore<Usuario> UserStore;
 
-	public static void AddIdentityDataFromInfra(this IServiceCollection services, string connectionString)
+    public static void AddIdentityDataFromInfra(this IServiceCollection services, string connectionString)
 	{
         services
             .AddDatabaseDeveloperPageExceptionFilter()
@@ -32,13 +36,12 @@ public static class IServiceCollectionExtensions
             .AddEntityFrameworkStores<MotoristaDbContext>()
             .AddClaimsPrincipalFactory<MotoristaClaimsPrincipalFactory>();
 
-        UserManager = services.BuildServiceProvider().GetRequiredService<UserManager<Usuario>>();
-
-        //services.AddScoped<IUsuarioRepository, UsuarioRepository>();
-        //services.AddScoped<IRepositoryBase<Automovel, Guid>, RepositoryBase<Automovel, Guid>>();
-        //services.AddScoped<IRepositoryBase<Viagem, Guid>, RepositoryBase<Viagem, Guid>>();
-        //services.AddScoped<IRepositoryBase<Reserva, Guid>, RepositoryBase<Reserva, Guid>>();
-        //services.AddScoped<IRepositoryBase<Passageiro, Guid>, RepositoryBase<Passageiro, Guid>>();
+        var serviceProvider = services.BuildServiceProvider();
+        ContextFactory = serviceProvider.GetRequiredService<IDbContextFactory<MotoristaDbContext>>();
+        SignInManager = serviceProvider.GetRequiredService<SignInManager<Usuario>>();
+        UserManager = serviceProvider.GetRequiredService<UserManager<Usuario>>();
+        RoleManager = serviceProvider.GetRequiredService<RoleManager<Grupo>>();
+        UserStore = serviceProvider.GetRequiredService<IUserStore<Usuario>>();
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
 
