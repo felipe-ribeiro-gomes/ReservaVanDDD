@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using ReservaVan.Motorista.Domain.Types;
 using System.ComponentModel.DataAnnotations;
 
 namespace ReservaVan.Motorista.Web.Models.ViewModels;
@@ -7,7 +7,7 @@ public class RegistreViewModel
 {
     public string? ReturnUrl { get; set; }
 
-    public IList<AuthenticationScheme>? ExternalLogins { get; set; }
+    public IList<AuthScheme>? ExternalLogins { get; set; }
 
     [Required]
     [EmailAddress]
