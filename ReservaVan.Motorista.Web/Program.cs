@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using ReservaVan.Motorista.Application;
-using ReservaVan.Motorista.Data;
 
 namespace ReservaVan.Motorista.Web;
 
@@ -13,9 +12,7 @@ public class Program
 
         // Add services to the container.
 
-        builder.Services.AddIdentityDataFromInfra(builder.Configuration.GetConnectionString("DefaultConnection"));
-
-        builder.Services.AddServicesFromApplication();
+        builder.Services.AddApplicationServices(builder.Configuration.GetConnectionString("DefaultConnection")!);
 
         builder.Services.PostConfigure<CookieAuthenticationOptions>(IdentityConstants.ApplicationScheme,
             options =>

@@ -12,8 +12,6 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\ReservaVan.Motorista.Application\ReservaVan.Motorista.Application.csproj" />
-	  <ProjectReference Include="..\ReservaVan.Motorista.Data\ReservaVan.Motorista.Data.csproj" />
-	  <ProjectReference Include="..\ReservaVan.Motorista.Domain\ReservaVan.Motorista.Domain.csproj" />
 	</ItemGroup>
 
 </Project>
