@@ -8,17 +8,17 @@ namespace ReservaVan.Motorista.Web.Controllers;
 public partial class DadosPessoaisController : ControllerBase
 {
     [HttpGet]
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        //_automovelAppSvc.Create(new Application.DTOs.CreateAutomovelRequest
-        //{
-        //    Marca = "marca appsvc",
-        //    Modelo = "modelo appsvc",
-        //    Cor = "cor appsvc",
-        //    Placa = "placa",
-        //    QtdVaga = 15,
-        //    UsuarioId = "90eba85e-7064-4ffe-a638-9e1c3d1713c7",
-        //});
+        await _automovelAppSvc.Create(new Application.DTOs.CreateAutomovelRequest
+        {
+            Marca = "marca appsvc",
+            Modelo = "modelo appsvc",
+            Cor = "cor appsvc",
+            Placa = "placa",
+            QtdVaga = 15,
+            UsuarioId = "d412240c-fe1a-47ba-8411-a2462b503666",
+        });
 
         return View();
     }
