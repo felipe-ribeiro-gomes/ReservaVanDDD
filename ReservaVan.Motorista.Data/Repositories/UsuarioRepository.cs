@@ -23,7 +23,7 @@ public class UsuarioRepository : IUsuarioRepository
 
     public async Task<Usuario?> FindByIdAsync(string userId) => await _userManager.FindByIdAsync(userId);
 
-    public Usuario? FindById(string userId) => _userManager.Users.FirstOrDefault(q => q.Id == userId);
+    public Usuario? FirstOrDefault(string userId) => _context.Users.FirstOrDefault(q => q.Id == userId);
 
     public async Task<Usuario?> FindByEmailAsync(string email) => await _userManager.FindByEmailAsync(email);
 

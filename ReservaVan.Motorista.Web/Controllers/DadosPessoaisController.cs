@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ReservaVan.Motorista.Application.DTOs;
 using ReservaVan.Motorista.Application.Interfaces.ApplicationServices;
 
 namespace ReservaVan.Motorista.Web.Controllers;
@@ -10,7 +11,7 @@ public partial class DadosPessoaisController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> Index()
     {
-        await _automovelAppSvc.Create(new Application.DTOs.CreateAutomovelRequest
+        await _automovelAppSvc.Create(new CreateAutomovelRequest
         {
             Marca = "marca appsvc",
             Modelo = "modelo appsvc",

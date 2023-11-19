@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
-using Elfie.Serialization;
 using MediatR;
-using Microsoft.Extensions.DependencyInjection;
 using ReservaVan.Motorista.Application.DTOs;
-using ReservaVan.Motorista.Data.Repositories;
 using ReservaVan.Motorista.Domain.Entities;
 using ReservaVan.Motorista.Domain.Interfaces.Repositories;
 
@@ -26,7 +23,7 @@ public class CreateAutomovelRequestHandler : IRequestHandler<CreateAutomovelRequ
                 .ForMember(d => d.CriadoEm, opts => opts.Ignore())
                 .ForMember(d => d.EditadoPor, opts => opts.Ignore())
                 .ForMember(d => d.EditadoEm, opts => opts.Ignore())
-                .ForMember(d => d.Usuario, opts => opts.MapFrom(s => unitOfWork.UsuarioRepository.FindById(s.UsuarioId)))
+                .ForMember(d => d.Usuario, opts => opts.MapFrom(s => unitOfWork.UsuarioRepository.FirstOrDefault(s.UsuarioId)))
                 .ForMember(d => d.Viagens, opts => opts.Ignore())
                 ;
 
