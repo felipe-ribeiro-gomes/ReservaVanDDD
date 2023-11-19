@@ -29,7 +29,6 @@ public partial class LoginController : ControllerBase
             return View(model);
         }
 
-        //var usuario = await _userManager.FindByEmailAsync(model.Email);
         var usuario = await _unitOfWork.UsuarioRepository.FindByEmailAsync(model.Email);
         if (usuario == null)
         {
@@ -38,7 +37,6 @@ public partial class LoginController : ControllerBase
             return View(model);
         }
 
-        //var senhaEstaCorreta = await _userManager.CheckPasswordAsync(usuario, model.Password);
         var senhaEstaCorreta = await _unitOfWork.UsuarioRepository.CheckPasswordAsync(usuario, model.Password);
         if (!senhaEstaCorreta)
         {
@@ -47,7 +45,6 @@ public partial class LoginController : ControllerBase
             return View(model);
         }
 
-        //await _signInManager.SignInAsync(usuario, false);
         await _unitOfWork.SignInRepository.SignInAsync(usuario, false);
 
         return LocalRedirect(model.ReturnUrl);

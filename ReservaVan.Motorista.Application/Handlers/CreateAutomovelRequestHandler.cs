@@ -19,8 +19,6 @@ public class CreateAutomovelRequestHandler : IRequestHandler<CreateAutomovelRequ
         {
             cfg.CreateMap<CreateAutomovelRequest, Automovel>()
                 .ForMember(d => d.Id, opts => opts.Ignore())
-                .ForMember(d => d.CriadoPor, opts => opts.Ignore())
-                .ForMember(d => d.CriadoEm, opts => opts.Ignore())
                 .ForMember(d => d.EditadoPor, opts => opts.Ignore())
                 .ForMember(d => d.EditadoEm, opts => opts.Ignore())
                 .ForMember(d => d.Usuario, opts => opts.MapFrom(s => unitOfWork.UsuarioRepository.FirstOrDefault(s.UsuarioId)))
@@ -50,16 +48,6 @@ public class CreateAutomovelRequestHandler : IRequestHandler<CreateAutomovelRequ
             var result = _mapper.Map<CreateAutomovelResponse>(automovel);
 
             return result;
-
-            //return new CreateAutomovelResponse
-            //{
-            //    UsuarioId = automovel.Usuario.Id,
-            //    Marca = automovel.Marca,
-            //    Modelo = automovel.Modelo,
-            //    Cor = automovel.Cor,
-            //    Placa = automovel.Placa,
-            //    QtdVaga = automovel.QtdVaga,
-            //};
         }
         catch (Exception ex)
         {

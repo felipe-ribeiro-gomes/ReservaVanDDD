@@ -43,8 +43,6 @@ public class RepositoryBase<TEntity, T> : IRepositoryBase<TEntity, T> where TEnt
 
     public async virtual Task Insert(TEntity entity)
     {
-        entity.CriadoPor = "";
-        entity.CriadoEm = DateTime.UtcNow;
         await _dbSet.AddAsync(entity);
         await _context.SaveChangesAsync();
     }
@@ -58,8 +56,6 @@ public class RepositoryBase<TEntity, T> : IRepositoryBase<TEntity, T> where TEnt
 
     public virtual void Delete(TEntity entityToDelete)
     {
-        entityToDelete.EditadoPor = "";
-        entityToDelete.EditadoEm = DateTime.UtcNow;
         if (_context.Entry(entityToDelete).State == EntityState.Detached)
         {
             _dbSet.Attach(entityToDelete);
@@ -70,8 +66,6 @@ public class RepositoryBase<TEntity, T> : IRepositoryBase<TEntity, T> where TEnt
 
     public virtual void Update(TEntity entityToUpdate)
     {
-        entityToUpdate.EditadoPor = "";
-        entityToUpdate.EditadoEm = DateTime.UtcNow;
         _dbSet.Attach(entityToUpdate);
         _context.Entry(entityToUpdate).State = EntityState.Modified;
         _context.SaveChanges();

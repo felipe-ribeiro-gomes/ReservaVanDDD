@@ -10,4 +10,6 @@ public class CreateAutomovelRequest : IRequest<CreateAutomovelResponse>
     public string Cor { get; set; }
     public string Placa { get; set; }
     public int QtdVaga { get; set; }
+    public string CriadoPor { get; set; }
+    public DateTime? CriadoEm { get; set; }
 }

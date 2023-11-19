@@ -22,7 +22,7 @@ public class AutomovelAppSvcTest
     }
 
     [TestMethod]
-    public async Task TestMethod1()
+    public async Task criar_automovel()
     {
         var svc = new AutomovelAppSvc(_mediator);
 
@@ -34,6 +34,8 @@ public class AutomovelAppSvcTest
             Placa = "placa",
             QtdVaga = 15,
             UsuarioId = "d412240c-fe1a-47ba-8411-a2462b503666",
+            CriadoPor = "felipe",
+            CriadoEm = DateTime.Now,
         });
     }
 }
